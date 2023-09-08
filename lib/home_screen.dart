@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:unicode_app/contacts.dart';
+import 'package:unicode_app/login_screen.dart';
+import 'package:unicode_app/weather_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final name;
+
+  const HomeScreen({this.name, super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -12,7 +16,45 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+              ),
+              child: Text(
+                "Welcome \n${widget.name}",
+                style: TextStyle(fontSize: 25),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text("Contacts"),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Contacts()));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.cloud),
+              title: Text("Weather"),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Weather_Screen()));
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.logout_outlined),
+              title: Text("Logout"),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()));
+              },
+            )
+          ],
+        ),
+      ),
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
       ),
@@ -70,7 +112,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Theme.of(context).primaryColor,
                       ),
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Weather_Screen()));
+                        },
                         icon: Icon(Icons.person),
                       ),
                     ),

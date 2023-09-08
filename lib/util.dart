@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class CustomTextField extends StatelessWidget {
   TextEditingController controller;
@@ -39,3 +40,19 @@ class CustomTextField extends StatelessWidget {
     );
   }
 }
+
+class ModalHelper {
+  String? text;
+  Widget? icon;
+
+  ModalHelper({required this.text, this.icon});
+}
+
+// class Data {
+//   static final userdata = Hive.box("users_data");
+
+//   static createUserList(Map<String, dynamic> userInformations) async {
+//     await userdata.add(userInformations);
+//     print("users ${userdata.length}");
+//   }
+// }
