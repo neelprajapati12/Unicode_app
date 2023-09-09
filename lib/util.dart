@@ -48,11 +48,11 @@ class ModalHelper {
   ModalHelper({required this.text, this.icon});
 }
 
-// class Data {
-//   static final userdata = Hive.box("users_data");
+class Data {
+  static final userdata = Hive.box("users_data");
 
-//   static createUserList(Map<String, dynamic> userInformations) async {
-//     await userdata.add(userInformations);
-//     print("users ${userdata.length}");
-//   }
-// }
+  static createUserList(Map<String, dynamic> userInformations) async {
+    await userdata.add(userInformations);
+    print("users ${userdata.length}");
+  }
+}

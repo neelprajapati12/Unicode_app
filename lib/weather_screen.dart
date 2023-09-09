@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:unicode_app/util.dart';
@@ -18,7 +17,8 @@ class _Weather_ScreenState extends State<Weather_Screen> {
   int pressure = 0;
   String cityname = '';
   final city = TextEditingController();
-  Future getWeather(String cityname) async {
+
+  getWeather(String cityname) async {
     try {
       final apikey = '429fe6c2a4e8b682c98b1afc04bcf293';
 
@@ -85,7 +85,7 @@ class _Weather_ScreenState extends State<Weather_Screen> {
             },
             child: Text('Get Weather'),
           ),
-          temp == 0
+          (temp == 0 && humidity == 0 && windspeed == 0 && pressure == 0)
               ? Align(
                   alignment: Alignment.center, child: Text("Enter City Name"))
               : Expanded(
@@ -148,7 +148,8 @@ class _Weather_ScreenState extends State<Weather_Screen> {
                         //         return Padding(
                         //           padding: const EdgeInsets.all(20.0),
                         //           child: Card(
-                        //             color: Color.fromARGB(255, 99, 121, 176),
+                        //             color: Color.fromARGB(
+                        //                 255, 99, 121, 176),
                         //           ),
                         //         );
                         //       }),
