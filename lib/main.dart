@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:unicode_app/home_screen.dart';
 import 'package:unicode_app/login_screen.dart';
+import 'package:unicode_app/personal_info.dart';
 import 'package:unicode_app/weather_screen.dart';
 
 void main() async {

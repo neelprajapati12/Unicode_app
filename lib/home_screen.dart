@@ -5,8 +5,11 @@ import 'package:unicode_app/weather_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final name;
+  final date;
+  final email;
+  final phoneno;
 
-  const HomeScreen({this.name, super.key});
+  const HomeScreen({this.name, this.date, this.email, this.phoneno, super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -17,6 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Drawer(
+        backgroundColor: Color.fromARGB(255, 99, 121, 176),
         child: ListView(
           children: [
             DrawerHeader(
@@ -118,7 +122,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               MaterialPageRoute(
                                   builder: (context) => Weather_Screen()));
                         },
-                        icon: Icon(Icons.person),
+                        icon: Icon(Icons.cloud),
                       ),
                     ),
                   ),

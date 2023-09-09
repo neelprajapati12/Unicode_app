@@ -37,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void initState() {
     super.initState();
     getCurrentDate();
-    if (userdata.containsKey('username') &&
+    if (userdata.containsKey('name') &&
         userdata.containsKey('email') &&
         userdata.containsKey('phoneno')) {
       namecontroller.text = userdata.get("name");
@@ -46,14 +46,14 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
-  @override
-  void dispose() {
-    namecontroller.dispose();
-    emailcontroller.dispose();
-    phonenocontroller.dispose();
-    // TODO: implement dispose
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   namecontroller.dispose();
+  //   emailcontroller.dispose();
+  //   phonenocontroller.dispose();
+  //   // TODO: implement dispose
+  //   super.dispose();
+  // }
 
   Widget build(BuildContext context) {
     return SafeArea(
@@ -148,10 +148,17 @@ class _LoginScreenState extends State<LoginScreen> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) =>
-                                      HomeScreen(name: name)));
+                                  builder: (context) => HomeScreen(
+                                      name: name,
+                                      date: date,
+                                      email: email,
+                                      phoneno: phoneno)));
                         }
-                        setState(() {});
+                        setState(() {
+                          userdata.put("name", name);
+                          userdata.put("email", email);
+                          userdata.put("phoneno", phoneno);
+                        });
                       },
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Theme.of(context).primaryColor,
